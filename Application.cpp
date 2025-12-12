@@ -4,6 +4,10 @@
  * @brief Fichier source de l'application
  *********************************************************************/
 #include "Application.h"
+#include "screen.hpp"
+#include <rgb_lcd.h>
+
+rgb_lcd screen; // Creation of global variable screen
 
 
 Application::Application()
@@ -21,7 +25,7 @@ Application::~Application()
 void Application::init(void)
 {
   // Code
-    ;
+  initDisplay(screen);
 }
 
 
