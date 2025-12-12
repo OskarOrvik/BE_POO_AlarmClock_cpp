@@ -1,4 +1,4 @@
-#include "Application.hpp"
+#include "Application.h"
 #ifndef _CLOCK_HPP
 #define _CLOCK_HPP
 
@@ -11,27 +11,28 @@ protected:
   int days;
   int hours;
   int seconds;
-}
+};
 
 class day{
 private:
 protected:
-  int days:
+  int days;
 
 public:
 
-}
+};
 
 class hour{
 private:
 protected:  
   int hours;
 public:
-}
+};
 
 class minute{
 private:
 protected:
   int minutes;
 public: 
-}
+};
+#endif
