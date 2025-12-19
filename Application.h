@@ -5,6 +5,10 @@
  *********************************************************************/
 #ifndef APPLICATION_H_
 #define APPLICATION_H_
+#include "screen.hpp"
+#include <rgb_lcd.h>
+#include "button.hpp"
+
 
 /**
   * @class Application
