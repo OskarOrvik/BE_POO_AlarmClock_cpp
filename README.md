@@ -20,5 +20,14 @@ Grove - LCD RGB Backlight
 LiquidCrystal I2C
 RTClib
 
+
 # To open port
 sudo chmod a+rw /dev/ttyUSB0
+
+
+# What we want:
+
+En klokke som tar inn dag, time og minutt for å sette alarm.
+Den skal spille av "Life is incredible" når vekkeklokken går
+En knapp fra Arduino-kortet blir brukt for å skru av alarmen
+
