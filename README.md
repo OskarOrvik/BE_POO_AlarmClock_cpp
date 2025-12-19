@@ -9,3 +9,13 @@ Light sensor
 # Classes used
 Year, Month, Day, Hour, Minutes, Seconds
 Room -> Proprieties
+
+
+# Libraries used
+LiquidCrystal by adafruit
+Adafruit BUSIO
+Adafruit Liquicrystal 2.0.4
+Adafruit MCP23017
+Grove - LCD RGB Backlight
+LiquidCrystal I2C
+RTClib
