@@ -19,3 +19,6 @@ Adafruit MCP23017
 Grove - LCD RGB Backlight
 LiquidCrystal I2C
 RTClib
+
+# To open port
+sudo chmod a+rw /dev/ttyUSB0
