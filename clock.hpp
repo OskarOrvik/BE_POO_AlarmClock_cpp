@@ -8,13 +8,18 @@
 class time{
 private:
 protected:
- 
+  class day{
+    private:
+    protected:
+      enum days = {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday}
+    public:
+  }
+public:
 };
 
 class day{
 private:
 protected:
-  enum days = {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday}
 public:
 
 };
@@ -35,10 +40,6 @@ public:
 #endif
 
 
+  //setdate -> time.day = dagen, time.minute = minuttet,, time.hour = timen
+  //int setDate(time.day dag, time.hour )
 
-
-
-
-setdate -> time.day = dagen, time.minute = minuttet,, time.hour = timen
-
-int setDate(time.day dag, time.hour )
