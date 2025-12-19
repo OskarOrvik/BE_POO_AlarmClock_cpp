@@ -7,30 +7,25 @@
 #include "screen.hpp"
 #include <rgb_lcd.h>
 
-rgb_lcd screen; // Creation of object screen
+rgb_lcd screen;  // Creation of object screen
 
-
-Application::Application()
-{
-  // Code
-  ; 
-}
-  
-Application::~Application()
-{
+Application::Application() {
   // Code
   ;
-}  
+}
 
-void Application::init(void)
-{
+Application::~Application() {
+  // Code
+  ;
+}
+
+void Application::init(void) {
   // Code
   initDisplay(screen);
 }
 
 
-void Application::run(void)
-{
+void Application::run(void) {
   // Code
-    ;
+  ;
 }
