@@ -1,7 +1,7 @@
 #include "Application.h"
 #include "clock.hpp"
 
-//Libraries déjà definies:
+//Libraries already defined
 #include <Wire.h>
 #include <RTClib.h>
 #include <LiquidCrystal_I2C.h>

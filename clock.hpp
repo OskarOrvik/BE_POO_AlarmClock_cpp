@@ -2,7 +2,7 @@
 #ifndef _CLOCK_HPP
 #define _CLOCK_HPP
 
-//Eller #pragma once
+//or #pragma once
 
 //Classes
 class time{

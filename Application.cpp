@@ -7,7 +7,7 @@
 #include "screen.hpp"
 #include <rgb_lcd.h>
 
-rgb_lcd screen; // Creation of global variable screen
+rgb_lcd screen; // Creation of object screen
 
 
 Application::Application()
