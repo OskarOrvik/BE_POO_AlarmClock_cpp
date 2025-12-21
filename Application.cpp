@@ -4,8 +4,8 @@
  * @brief Fichier source de l'application
  *********************************************************************/
 #include "Application.h"
-
-rgb_lcd screen;  // Creation of object screen
+screen myScreen; // Creation of own oject screen
+rgb_lcd lcd_screen;  // Creation of object screen
 button tactile; // Creation of button object
 
 Application::Application() {
@@ -20,13 +20,11 @@ Application::~Application() {
 
 void Application::init(void) {
   // Code
-  initDisplay(screen);
-  //tactile.setup();
-
+  myScreen.initDisplay(lcd_screen);
+  tactile.setup();
 }
-
 
 void Application::run(void) {
   // Code
-  //tactile.verifyButton();
+  tactile.verifyButton();
 }

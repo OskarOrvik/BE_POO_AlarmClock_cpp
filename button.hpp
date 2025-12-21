@@ -1,5 +1,6 @@
 #pragma once
-class button{
+#include "peripheral.hpp"
+class button : public peripheral{
   public:
     void setup();
     int verifyButton();
