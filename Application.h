@@ -5,9 +5,11 @@
  *********************************************************************/
 #ifndef APPLICATION_H_
 #define APPLICATION_H_
+// Libraries
 #include "screen.hpp"
 #include <rgb_lcd.h>
 #include "button.hpp"
+#include <Wire.h>
 
 
 /**

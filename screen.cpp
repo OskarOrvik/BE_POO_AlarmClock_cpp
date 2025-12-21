@@ -1,4 +1,5 @@
 #include "screen.hpp"
+
 screen::screen(){};
 screen::~screen(){};
 void screen::initDisplay(rgb_lcd screen){

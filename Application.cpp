@@ -1,9 +1,10 @@
 /*********************************************************************
  * @file  Apllication.cpp
- * @author <mettre l'adresse mail ou nom prenom>
+ * @author Oskar Orvik & Brage Johnsen  
  * @brief Fichier source de l'application
  *********************************************************************/
 #include "Application.h"
+// Objects
 screen myScreen; // Creation of own oject screen
 rgb_lcd lcd_screen;  // Creation of object screen
 button tactile; // Creation of button object

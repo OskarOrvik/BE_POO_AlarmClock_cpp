@@ -1,8 +1,5 @@
-#include "rgb_lcd.h"
+
 #include "Application.h"
-
-
-#include <Wire.h>
 
 Application alarmClock;
 

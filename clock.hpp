@@ -1,9 +1,12 @@
-#include "Application.h"
-#include <iostream>
 #ifndef _CLOCK_HPP
 #define _CLOCK_HPP
-
-//or #pragma once
+//Libraries
+#include <Wire.h>
+#include <RTClib.h>
+#include <LiquidCrystal_I2C.h>
+#include "Application.h"
+#include <iostream>
+#include <Arduino.h>
 
 /*
 
