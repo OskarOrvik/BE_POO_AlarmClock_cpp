@@ -21,9 +21,12 @@ class time{
   public:
     time();
     int begin(int day, int hour, int minute);
-    int GetHour();
-    int GetMinute();
-    int GetDay();
+    int getHour();
+    int getMinute();
+    int getDay();
+    void setHour(int hour);
+    void setMinute(int minute);
+    void setDay(int day);
 };
 
 enum day {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday};
@@ -70,7 +73,7 @@ protected:
 
 public:
 };
-/*
+
 class day{
 private:
 protected:

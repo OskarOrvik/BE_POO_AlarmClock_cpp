@@ -1,13 +1,13 @@
 #include "clock.hpp"
 
 time::time(){};
-int time::GetDay() {
+int time::getDay() {
   return d;
 }
-int time::GetHour() {
+int time::getHour() {
   return h;
 }
-int time::GetMinute() {
+int time::getMinute() {
   return m;
 }
 int time::begin(int day, int hour, int minute){
@@ -21,6 +21,10 @@ int time::begin(int day, int hour, int minute){
     return 0;
   }
 }
+
+void time::setDay(int day){d = day;}
+void time::setHour(int hour){h = hour;}
+void time::setMinute(int minute){m = minute;}
 
 minute::minute(int m) {
   if (m < 0 || m > 59) {
