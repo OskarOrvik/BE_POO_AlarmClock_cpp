@@ -10,6 +10,7 @@
 #include <rgb_lcd.h>
 #include "button.hpp"
 #include <Wire.h>
+#include <iostream>
 
 
 /**

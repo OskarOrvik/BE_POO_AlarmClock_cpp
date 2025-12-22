@@ -33,11 +33,34 @@ hour::hour(int h) {
   }
 };
 
-
-
-int set_alarm(int heures, int minutes) {  // For an alarm going off after x hours and y minutes
-  timer1_enabled();
-
-
-  return 0;
+const int testPin = D8;    // Onboard LED pin
+void testTimer(){
+  if ( digitalRead(testPin)){ // Toggle pin
+    digitalWrite(testPin, LOW);
+  }
+  else{
+    digitalWrite(testPin, HIGH);
+  }
 }
+
+void TIM1_IThandler(){ // interrupt userFunc
+  timer1_write(8388607-6250000); // 20s
+  testTimer();
+}
+
+int set_alarm(int hours, int minutes) {  // For an alarm going off after x hours and y minutes
+    if (hours<0 || hours>23 || minutes<0 || minutes>59){
+    return -1;
+  }
+  else{
+  int STOP = 60*(60*hours + minutes); // Unused for the moment. Will be used to stop the process
+  timer1_enabled();
+  timer1_enable(TIM_DIV256, TIM_EDGE, TIM_LOOP);
+  timer1_attachInterrupt(TIM1_IThandler);
+  return 0;
+  }
+}
+
+
+
+
