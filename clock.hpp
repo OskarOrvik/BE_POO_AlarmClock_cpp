@@ -12,14 +12,14 @@
 
 //Classes
 
-class time{
+class timeDay{
   private:
   protected:
     int d;
     int h;
     int m;
   public:
-    time();
+    timeDay();
     int begin(int day, int hour, int minute);
     int getHour();
     int getMinute();
@@ -31,7 +31,7 @@ class time{
 
 enum day {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday};
 
-class hour : time{
+class hour : timeDay{
   private:
   protected:
     hour(int h);
@@ -39,7 +39,7 @@ class hour : time{
     public:
 };
 
-class minute : time{
+class minute : timeDay{
   private:
   protected:
     minute(int m);

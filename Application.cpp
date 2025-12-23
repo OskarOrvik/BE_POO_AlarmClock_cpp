@@ -8,6 +8,7 @@
 screen myScreen; // Creation of own oject screen
 rgb_lcd lcd_screen;  // Creation of object screen
 button tactile; // Creation of button object
+timeDay currentTime;
 
 Application::Application() {
   // Code
@@ -23,6 +24,7 @@ void Application::init(void) {
   // Code
   myScreen.initDisplay(lcd_screen);
   tactile.setup();
+  currentTime.begin(00, 00, 00);
 }
 
 void Application::run(void) {

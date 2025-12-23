@@ -1,16 +1,16 @@
 #include "clock.hpp"
 
-time::time(){};
-int time::getDay() {
+timeDay::timeDay(){};
+int timeDay::getDay() {
   return d;
 }
-int time::getHour() {
+int timeDay::getHour() {
   return h;
 }
-int time::getMinute() {
+int timeDay::getMinute() {
   return m;
 }
-int time::begin(int day, int hour, int minute){
+int timeDay::begin(int day, int hour, int minute){
   d = day;
   h = hour;
   m = minute;
@@ -22,9 +22,9 @@ int time::begin(int day, int hour, int minute){
   }
 }
 
-void time::setDay(int day){d = day;}
-void time::setHour(int hour){h = hour;}
-void time::setMinute(int minute){m = minute;}
+void timeDay::setDay(int day){d = day;}
+void timeDay::setHour(int hour){h = hour;}
+void timeDay::setMinute(int minute){m = minute;}
 
 minute::minute(int m) {
   if (m < 0 || m > 59) {
