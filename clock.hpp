@@ -1,35 +1,34 @@
 #ifndef _CLOCK_HPP
 #define _CLOCK_HPP
-//Libraries
+//C/Arduiono-libraries
 #include <Wire.h>
 #include <RTClib.h>
 #include <LiquidCrystal_I2C.h>
-#include "Application.h"
 #include <iostream>
 #include <Arduino.h>
-
-
+//Headers used
+#include "Application.h"
 
 //Classes
-
 class timeDay{
   private:
   protected:
     int d;
     int h;
     int m;
+    int dm;
   public:
     timeDay();
-    int begin(int day, int hour, int minute);
-    int getHour();
-    int getMinute();
-    int getDay();
+    int begin(int day, int hour, int minute, int daymonth);
+    int getHour(); 
+    int getMinute(); 
+    int getDayOfMonth(); 
+    int getDayOfWeek();
     void setHour(int hour);
     void setMinute(int minute);
-    void setDay(int day);
+    void setDayWeek(int day);
+    void setDayMonth(int daymonth);
 };
-
-enum day {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday};
 
 class hour : timeDay{
   private:
@@ -46,59 +45,18 @@ class minute : timeDay{
     int value;
   public:
 };
-
-
-
-/* 
-class hour : time
-
-class time{
-private:
-protected:
-  enum class day{Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday}
-    public:
-  };
-{
-    
-
-{
-      if (m<0 || m>59){std::cout << "Minutes are to be between 0 and 59" << std::endl;}
-
+class daymonth : timeDay{
+  private:
+  protected:
+    daymonth(int dm);
+    int value;
+  public:
 };
 
-    time Time(day d, int h, int m) : day(d), hour(h), minute(m){
-      if(h<0 || h>23){std::cout<<"Hour needs be between 00:00 and 23:00"<<endl;}
-      if(m<0 || m>59){std::cout<<"Minutes needs be between 0 and 59"<<endl;}
-    }
+void testTimer();
+void TIM1_IThandler();
+int set_alarm(int hours, int minutes);
+void setupRTC();
+std::array<int,4> dateNow();
 
-public:
-};
-
-class day{
-private:
-protected:
-public:
-
-};
-
-class hour{
-private:
-protected:  
-  int hours;
-public:
-};
-
-class minute{
-private:
-protected:
-  int minutes;
-public: 
-};
-
-*/
 #endif
-
-
-  //setdate -> time.day = dagen, time.minute = minuttet,, time.hour = timen
-  //int setDate(time.day dag, time.hour )
-

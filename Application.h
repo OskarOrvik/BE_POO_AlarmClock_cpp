@@ -5,15 +5,15 @@
  *********************************************************************/
 #ifndef APPLICATION_H_
 #define APPLICATION_H_
-// Libraries
-#include "screen.hpp"
+// C/Arduino-libraries
 #include <rgb_lcd.h>
-#include "button.hpp"
 #include <Wire.h>
 #include <iostream>
+//Headers
+#include "button.hpp"
+#include "screen.hpp"
 #include "clock.hpp"
-
-
+#include "buzzer.hpp"
 
 /**
   * @class Application
@@ -21,6 +21,8 @@
 */    
 class Application
 {
+  private:
+  bool hasRun;
   public :
     /**
      * @fn Application();

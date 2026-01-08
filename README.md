@@ -5,6 +5,8 @@ In this project we will do an alarm clock.
 Screen
 Buzzer
 Light sensor
+Button
+LED
 
 # Classes used
 Year, Month, Day, Hour, Minutes, Seconds
@@ -28,6 +30,13 @@ sudo chmod a+rw /dev/ttyUSB0
 # What we want:
 
 En klokke som tar inn dag, time og minutt for å sette alarm.
-Den skal spille av "Life is incredible" når vekkeklokken går
+Den skal spille av "Life is incredible" når vekkeklokken går. 
+Samt en LCD som viser dato når vekkeklokken går
 En knapp fra Arduino-kortet blir brukt for å skru av alarmen
 
+# Configuartions of the Grove
+The buzzer is configurated on pin: **D8**
+The screen is configurated on pins:
+The button is configurated on pins:
+The lights-sensor is configurated on pins:
+The LED is configurated on pins: 

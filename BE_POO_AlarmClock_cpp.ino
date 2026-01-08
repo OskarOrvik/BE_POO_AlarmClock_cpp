@@ -1,4 +1,3 @@
-
 #include "Application.h"
 
 Application alarmClock;

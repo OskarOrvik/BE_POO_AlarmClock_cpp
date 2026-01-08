@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "button.hpp"
 
 // Define the pin connected to the Grove Button
