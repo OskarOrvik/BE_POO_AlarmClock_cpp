@@ -11,6 +11,7 @@ class screen : public peripheral{
   void initDisplay(rgb_lcd &screen); 
   void messageScreen(rgb_lcd &screen, const char * m);
   const char* dayToString(day d);
+  void loopScreen(rgb_lcd &screen);
 };
 
 #endif // SCREEN_H_

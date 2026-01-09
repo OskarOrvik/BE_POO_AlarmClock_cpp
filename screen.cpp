@@ -24,3 +24,7 @@ void screen::messageScreen(rgb_lcd &screen, const char * m){ //Function that sen
     default:        return "?";
   }
 }
+void screen::loopScreen(rgb_lcd &screen){
+  screen.scrollDisplayLeft();
+  delay(500);
+}
