@@ -2,8 +2,7 @@
 #define _CLOCK_HPP
 //C/Arduiono-libraries
 #include <Wire.h>
-#include <RTClib.h>
-#include <LiquidCrystal_I2C.h>
+//#include <LiquidCrystal_I2C.h>
 #include <iostream>
 #include <Arduino.h>
 //Headers used
@@ -52,14 +51,32 @@ class daymonth : timeDay{
     int value;
   public:
 };
+class dayweek : timeDay{
+  private:
+  protected:
+    dayweek(int dw);
+    int value;
+  public:
+};
 
-void initTimer();
-void testTimer();
-void stop_alarm();
-void setupTimer();
+class counter{
+  private:
+    volatile long remainingSec = 0;
+    volatile bool countdownFinish = false;
+  public:
+  counter();
+  ~counter();
+    void initTimer();
+    void testTimer();
+    void counterOff();
+    void setupTimer();
+    int setCountdown(int hours, int minutes, int seconds);
+    bool isFinished();
+    volatile long* getRemainingSecPtr();
+};
+
 void TIM1_IThandler();
-int set_alarm(int hours, int minutes);
-void setupRTC();
-std::array<int,4> dateNow();
+
+
 
 #endif

@@ -1,6 +1,5 @@
 #include "clock.hpp"
 #include <Arduino.h>
-#include <RTClib.h>
 
 
 timeDay::timeDay(){};
@@ -50,60 +49,53 @@ daymonth::daymonth(int dm){
     std::cout << "Date needs be between 1 and 31 !" << std::endl;
   }
 };
+dayweek::dayweek(int dw){if (dw < 1 || dw > 7) {
+    std::cout << "Day needs be between 1 and 7 !" << std::endl;
+  }
+};
 
 #define testPin D5
+counter::counter(){};
+counter::~counter(){};
 
-void initTimer(){
+void counter::initTimer(){
   pinMode(testPin, OUTPUT);
 }
-
-void TIM1_IThandler(){
-  digitalWrite(testPin, !digitalRead(testPin));
-}
-
-void stop_alarm(){
+void counter::counterOff(){
   timer1_detachInterrupt();
   timer1_disable();
 }
+volatile long* gRemainingSec = nullptr;  // global pointer to remainingSec in counter
+volatile bool* gCountdownFinish = nullptr; // global pointer to countdownFinish in counter
+ IRAM_ATTR void TIM1_IThandler() {
+  if (*gRemainingSec > 0) {
+    (*gRemainingSec)--;
+  }
+  if(*gRemainingSec == 0){*gCountdownFinish = true;}
+ }
 
-int set_alarm(int hours, int minutes){
-  if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
+int counter::setCountdown(int hours, int minutes, int seconds){
+  if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59 || seconds < 0 || seconds > 59) {
     return -1;
   }
+  remainingSec = hours * 3600L + minutes*60L + seconds;
+  countdownFinish = false;
+
+  gRemainingSec = &remainingSec;       // point ISR to this counter's variable
+  gCountdownFinish = &countdownFinish;
+
   timer1_enable(TIM_DIV256, TIM_EDGE, TIM_LOOP);
-  timer1_write(312500/2); // 1s
+  timer1_write(312500); // 1s
   timer1_attachInterrupt(TIM1_IThandler);
   return 0;
 }
 
-void setupTimer(){
-  initTimer();
-  set_alarm(0, 1); // Example: set alarm for 1 minute
+bool counter::isFinished() {
+    return countdownFinish;
 }
 
-//Use of REAL TIME CLOCK, defined underneath
-RTC_DS3231 rtc; //Creating Real Time Clock
-//Initialisation du RTC
-void setupRTC() {
-  Serial.begin(9600);
-  
-  if (!rtc.begin()) {  // Check if RTC is connected
-    Serial.println("Real Time Clock not found!"); // It's printed in the arduino IDE
-    while (1);         // Stop if not found
-  }
+volatile long* counter::getRemainingSecPtr() {
+    return &remainingSec;  // give ISR access
 }
-
-
-std::array<int,4> dateNow(){
-  DateTime now = rtc.now();
-  std::array<int,4> listTime;
-  listTime[0] = now.minute();
-  listTime[1] = now.hour();
-  listTime[2] = now.dayOfTheWeek();
-  listTime[3] = now.day();
-  return listTime;
-}
-
-
 
 
