@@ -36,7 +36,7 @@ En knapp fra Arduino-kortet blir brukt for å skru av alarmen
 
 # Configuartions of the Grove
 The buzzer is configurated on pin: **D8**
-The screen is configurated on pins:
-The button is configurated on pins:
+The screen is configurated on pins: I2C D1
+The button is configurated on pins: 
 The lights-sensor is configurated on pins:
 The LED is configurated on pins: 
