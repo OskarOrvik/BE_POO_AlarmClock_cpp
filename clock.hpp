@@ -53,7 +53,10 @@ class daymonth : timeDay{
   public:
 };
 
+void initTimer();
 void testTimer();
+void stop_alarm();
+void setupTimer();
 void TIM1_IThandler();
 int set_alarm(int hours, int minutes);
 void setupRTC();

@@ -51,33 +51,36 @@ daymonth::daymonth(int dm){
   }
 };
 
-const int testPin = D8;    // Onboard LED pin
-void testTimer(){
-  if ( digitalRead(testPin)){ // Toggle pin
-    digitalWrite(testPin, LOW);
-  }
-  else{
-    digitalWrite(testPin, HIGH);
-  }
+#define testPin D5
+
+void initTimer(){
+  pinMode(testPin, OUTPUT);
 }
 
-void TIM1_IThandler(){ // interrupt userFunc
-  timer1_write(8388607-6250000); // 20s
-  testTimer();
+void TIM1_IThandler(){
+  digitalWrite(testPin, !digitalRead(testPin));
 }
 
-int set_alarm(int hours, int minutes) {  // For an alarm going off after x hours and y minutes
-    if (hours<0 || hours>23 || minutes<0 || minutes>59){
+void stop_alarm(){
+  timer1_detachInterrupt();
+  timer1_disable();
+}
+
+int set_alarm(int hours, int minutes){
+  if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
     return -1;
   }
-  else{
-  int STOP = 60*(60*hours + minutes); // Unused for the moment. Will be used to stop the process
-  timer1_enabled();
   timer1_enable(TIM_DIV256, TIM_EDGE, TIM_LOOP);
+  timer1_write(312500/2); // 1s
   timer1_attachInterrupt(TIM1_IThandler);
   return 0;
-  }
 }
+
+void setupTimer(){
+  initTimer();
+  set_alarm(0, 1); // Example: set alarm for 1 minute
+}
+
 //Use of REAL TIME CLOCK, defined underneath
 RTC_DS3231 rtc; //Creating Real Time Clock
 //Initialisation du RTC

@@ -13,6 +13,7 @@ void button::setup() {
   pinMode(buttonPin, INPUT);  // Set the button pin as input
   pinMode(ledPin, OUTPUT);   // Set the LED pin as output
 }
+
 int button::verifyButton(){
   if ( digitalRead(buttonPin)){
     digitalWrite(ledPin, HIGH);

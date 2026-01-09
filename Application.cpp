@@ -18,6 +18,7 @@ Application::Application() : hasRun(false) {  // initialize
 Application::~Application() {
   // Code
   std::cout << "Application destroyed" << std::endl;
+  timer1_disable();         // Disable the timer
 }
 
 
@@ -32,6 +33,7 @@ void Application::init(void) {
   tactile.setup();
   myScreen.initDisplay(lcd_screen);
   //myBuzzer.initBuzzer();
+  initTimer();
 }
 
 void Application::run(void) {
@@ -40,7 +42,7 @@ void Application::run(void) {
   char mes[100] = "Luke, I'm your father!";
   myScreen.messageScreen(lcd_screen, mes); 
 
-  
+  Serial.print("char");
 
   //myBuzzer.BuzzerON();
   //myBuzzer.buzzerPlay();
@@ -51,6 +53,7 @@ void Application::run(void) {
   }
   else{
   myScreen.loopScreen(lcd_screen);
-  tactile.verifyButton();
+  //tactile.verifyButton();
+  setupTimer();
   }
   }
