@@ -14,7 +14,8 @@ const int melody[] = {
   0, NOTE_AS5, NOTE_A5, 0, NOTE_G5,
   0, 0, 0, 0,
 };
-
+const int waitMelody[] = {0,0,0,0,0,0};
+const int waitDuration[]={1,1,1,1,1,1};
 // note durations: 4 = quarter note, 8 = eighth note, etc.:
 const int noteDurations[] = {
   6, 2, 4, 8,
@@ -41,6 +42,7 @@ void buzzer::BuzzerON(){
 void buzzer::BuzzerOFF(){
   digitalWrite(BuzzerPin, LOW);
 }
+
 void buzzer::buzzerPlay() {
   for (int thisNote = 0; thisNote < sizeof(melody)/sizeof(melody[0]) ; thisNote++) {
     // to calculate the note duration, take one second divided by the note type. E.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.

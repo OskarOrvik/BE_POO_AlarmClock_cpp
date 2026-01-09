@@ -65,6 +65,7 @@ void counter::counterOff(){
   timer1_detachInterrupt();
   timer1_disable();
 }
+
 volatile long* gRemainingSec = nullptr;  // global pointer to remainingSec in counter
 volatile bool* gCountdownFinish = nullptr; // global pointer to countdownFinish in counter
  IRAM_ATTR void TIM1_IThandler() {
@@ -85,7 +86,7 @@ int counter::setCountdown(int hours, int minutes, int seconds){
   gCountdownFinish = &countdownFinish;
 
   timer1_enable(TIM_DIV256, TIM_EDGE, TIM_LOOP);
-  timer1_write(312500); // 1s
+  timer1_write(312500*2); // 1s
   timer1_attachInterrupt(TIM1_IThandler);
   return 0;
 }
@@ -97,5 +98,3 @@ bool counter::isFinished() {
 volatile long* counter::getRemainingSecPtr() {
     return &remainingSec;  // give ISR access
 }
-
-

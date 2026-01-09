@@ -20,7 +20,7 @@ Adafruit Liquicrystal 2.0.4
 Adafruit MCP23017
 Grove - LCD RGB Backlight
 LiquidCrystal I2C
-RTClib
+
 
 
 # To open port
@@ -36,7 +36,12 @@ En knapp fra Arduino-kortet blir brukt for å skru av alarmen
 
 # Configuartions of the Grove
 The buzzer is configurated on pin: **D8**
-The screen is configurated on pins: I2C D1
+The screen is configurated on pins: **I2C D1**
+
 The button is configurated on pins: 
-The lights-sensor is configurated on pins:
+The lights-sensor is configurated on pins: 
 The LED is configurated on pins: 
+
+# Remarks
+We tried to implement an RTC to show what time it is during wake up, but we do not have the RTC-module(Hardware)
+

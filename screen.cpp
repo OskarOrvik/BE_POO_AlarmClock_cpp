@@ -8,7 +8,7 @@ void screen::initDisplay(rgb_lcd &screen){ //Function that initializes the LCD
   screen.clear(); // Clear the screen
 }
 void screen::messageScreen(rgb_lcd &screen, const char * m){ //Function that sends a message to the LCD
-  screen.clear();
+  screen.setCursor(0, 0);
   screen.print(m);
   }
 
