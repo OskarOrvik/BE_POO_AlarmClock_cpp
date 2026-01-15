@@ -15,34 +15,36 @@
 #include "clock.hpp"
 #include "buzzer.hpp"
 
+extern int activeAlarm;
+extern int ringAlarm;
+
 /**
   * @class Application
   * @brief Classe Application 
-*/    
-class Application
-{
-  private:
+*/
+class Application {
+private:
   bool hasRun;
-  public :
-    /**
+public:
+  /**
      * @fn Application();
      * @brief Constructeur par defaut
-    */    
-    Application();
-    /**
+    */
+  Application();
+  /**
      * @fn Application();
      * @brief Destructeur
-    */    
-    ~Application();    
-    /**
+    */
+  ~Application();
+  /**
      * @fn void init(void)
      * @brief Fonction d'initialisation de l'application
     */
-    void init(void);
-    /**
+  void init(void);
+  /**
      * @fn void run(void)
      * @brief Fonction de lancement de l'application
     */
-    void run(void);
+  void run(void);
 };
 #endif

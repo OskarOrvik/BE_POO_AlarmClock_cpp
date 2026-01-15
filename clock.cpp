@@ -52,6 +52,8 @@ daymonth::daymonth(int dm){
 };
 
 #define testPin D5
+int STOP = 10;
+int interruptionCounter = 0;
 
 void initTimer(){
   pinMode(testPin, OUTPUT);
@@ -59,51 +61,31 @@ void initTimer(){
 
 void TIM1_IThandler(){
   digitalWrite(testPin, !digitalRead(testPin));
+  interruptionCounter += 1;
+  if(interruptionCounter > STOP){
+    stop_alarm();
+  }
 }
 
 void stop_alarm(){
   timer1_detachInterrupt();
   timer1_disable();
+  ringAlarm = 1;
 }
 
-int set_alarm(int hours, int minutes){
+int setCountdown(int hours, int minutes, int seconds){
   if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
     return -1;
   }
-  timer1_enable(TIM_DIV256, TIM_EDGE, TIM_LOOP);
-  timer1_write(312500/2); // 1s
+  STOP = (60*(60*hours + minutes))+ seconds; // Unused for the moment. Will be used to stop the process
+  timer1_write(312500); // 1s
+  timer1_enable(TIM_DIV256, TIM_LEVEL, TIM_LOOP);
   timer1_attachInterrupt(TIM1_IThandler);
   return 0;
 }
 
 void setupTimer(){
   initTimer();
-  set_alarm(0, 1); // Example: set alarm for 1 minute
+  setCountdown(0, 0, 20); // Example: set alarm for 1 minute
 }
-
-//Use of REAL TIME CLOCK, defined underneath
-RTC_DS3231 rtc; //Creating Real Time Clock
-//Initialisation du RTC
-void setupRTC() {
-  Serial.begin(9600);
-  
-  if (!rtc.begin()) {  // Check if RTC is connected
-    Serial.println("Real Time Clock not found!"); // It's printed in the arduino IDE
-    while (1);         // Stop if not found
-  }
-}
-
-
-std::array<int,4> dateNow(){
-  DateTime now = rtc.now();
-  std::array<int,4> listTime;
-  listTime[0] = now.minute();
-  listTime[1] = now.hour();
-  listTime[2] = now.dayOfTheWeek();
-  listTime[3] = now.day();
-  return listTime;
-}
-
-
-
 

@@ -8,6 +8,7 @@
 #include <Arduino.h>
 //Headers used
 #include "Application.h"
+#include "buzzer.hpp"
 
 //Classes
 class timeDay{
@@ -58,7 +59,7 @@ void testTimer();
 void stop_alarm();
 void setupTimer();
 void TIM1_IThandler();
-int set_alarm(int hours, int minutes);
+int setCountdown(int hours, int minutes,int seconds);
 void setupRTC();
 std::array<int,4> dateNow();
 

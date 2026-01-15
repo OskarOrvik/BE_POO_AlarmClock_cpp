@@ -2,8 +2,8 @@
 #include "button.hpp"
 
 // Define the pin connected to the Grove Button
-const int buttonPin = D3;  // Signal pin of the Grove Button
-const int ledPin = D5;    // Onboard LED pin
+const int buttonPin = D6;  // Signal pin of the Grove Button
+const int ledPin = D3;    // Onboard LED pin
 
 // Constructor/destructor
 button::button(){};
