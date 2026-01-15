@@ -10,5 +10,12 @@ class buzzer : public peripheral{
   void BuzzerON();
   void BuzzerOFF();
   void buzzerPlay();
+  void buzzerMute();
+  
+
 };
+
+void IT_Alarm();
+void buzzerMute();
+
 #endif

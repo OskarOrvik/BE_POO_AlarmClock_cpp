@@ -9,14 +9,12 @@
 screen myScreen;     // Creation of own oject screen
 rgb_lcd lcd_screen;  // Creation of object screen
 button tactile;      // Creation of button object
-timeDay currentTime;
-buzzer myBuzzer;
+buzzer myBuzzer;     // Creation of buzzer object
 
 int activeAlarm = 0;
 int ringAlarm = 0;
 
-Application::Application()
-  : hasRun(false) {  // initialize
+Application::Application() : hasRun(false) {  // initialize
   std::cout << "Application created" << std::endl;
 }
 
@@ -34,41 +32,44 @@ void Application::init(void) {
   myScreen.initDisplay(lcd_screen);
   myBuzzer.initBuzzer();
   initTimer();
-  //setupTimer();
-  pinMode(D6, INPUT); 
 }
 
 
 void Application::run(void) {
   if (!hasRun) {
 
-    char mes[100] = "Luke, I'm your father!";
-    myScreen.messageScreen(lcd_screen, mes);
+    char mes1[100] = "Johnsen & Orvik Co";
+    myScreen.messageScreen(lcd_screen, mes1);
+    delay(5000);
+    char mes2[100] = "Countdown machine";
+    myScreen.messageScreen(lcd_screen, mes2);
+    delay(4000);
+    
+    
 
-
-    myBuzzer.BuzzerON();
-    myBuzzer.buzzerPlay();
-    myBuzzer.BuzzerOFF();
+    //myBuzzer.BuzzerON();
+    //myBuzzer.buzzerPlay();
+    //myBuzzer.BuzzerOFF();
     hasRun = true;
     
   } else {
     myScreen.loopScreen(lcd_screen);
-    //tactile.verifyButton();
     
-    
-    if (!activeAlarm && digitalRead(D6)){
+    if (!activeAlarm && tactile.readButton()){
        setupTimer();
        activeAlarm = 1;
     }
 
     if(ringAlarm){
-      while(!digitalRead(D6)){
-        myBuzzer.BuzzerON();
-        myBuzzer.buzzerPlay();
-        myBuzzer.BuzzerOFF();
-      }
+      char mes3[100] = "Wake up !!! Wake up !!!";
+      myScreen.messageScreen(lcd_screen, mes3);
+      myBuzzer.BuzzerON();
+      myBuzzer.buzzerPlay();
+      myBuzzer.BuzzerOFF();  
       ringAlarm = 0;
       activeAlarm = 0;
+      
+    
     }
   }
 }

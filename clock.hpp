@@ -10,49 +10,6 @@
 #include "Application.h"
 #include "buzzer.hpp"
 
-//Classes
-class timeDay{
-  private:
-  protected:
-    int d;
-    int h;
-    int m;
-    int dm;
-  public:
-    timeDay();
-    int begin(int day, int hour, int minute, int daymonth);
-    int getHour(); 
-    int getMinute(); 
-    int getDayOfMonth(); 
-    int getDayOfWeek();
-    void setHour(int hour);
-    void setMinute(int minute);
-    void setDayWeek(int day);
-    void setDayMonth(int daymonth);
-};
-
-class hour : timeDay{
-  private:
-  protected:
-    hour(int h);
-    int value;
-    public:
-};
-
-class minute : timeDay{
-  private:
-  protected:
-    minute(int m);
-    int value;
-  public:
-};
-class daymonth : timeDay{
-  private:
-  protected:
-    daymonth(int dm);
-    int value;
-  public:
-};
 
 void initTimer();
 void testTimer();

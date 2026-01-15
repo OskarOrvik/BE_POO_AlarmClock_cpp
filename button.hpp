@@ -8,7 +8,11 @@ class button : public peripheral{
   public:
     void setup();
     int verifyButton();
+    int readButton();
     button();
     ~button();
+    
 };
+
+
 #endif

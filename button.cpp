@@ -23,3 +23,5 @@ int button::verifyButton(){
   }
   return 0;
 }
+
+int button::readButton(){return(digitalRead(buttonPin));}
