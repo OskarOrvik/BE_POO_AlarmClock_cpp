@@ -15,6 +15,7 @@ void TIM1_IThandler(){
   interruptionCounter += 1;
   if(interruptionCounter > STOP){
     stop_alarm();
+    interruptionCounter = 0;
   }
 }
 
@@ -22,6 +23,7 @@ void stop_alarm(){
   timer1_detachInterrupt();
   timer1_disable();
   ringAlarm = 1;
+
 }
 
 int setCountdown(int hours, int minutes, int seconds){

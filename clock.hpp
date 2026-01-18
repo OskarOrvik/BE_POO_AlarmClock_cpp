@@ -17,7 +17,6 @@ void stop_alarm();
 void setupTimer();
 void TIM1_IThandler();
 int setCountdown(int hours, int minutes,int seconds);
-void setupRTC();
-std::array<int,4> dateNow();
+
 
 #endif

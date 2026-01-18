@@ -38,7 +38,7 @@ void Application::init(void) {
 void Application::run(void) {
   if (!hasRun) {
 
-    char mes1[100] = "Johnsen & Orvik Co";
+    char mes1[100] = "Johnsen & Orvik";
     myScreen.messageScreen(lcd_screen, mes1);
     delay(5000);
     char mes2[100] = "Countdown machine";
